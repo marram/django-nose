@@ -37,9 +37,9 @@ class FastFixtureTestCase(test.TransactionTestCase):
     @classmethod
     def setUpClass(cls):
         """Turn on manual commits. Load and commit the fixtures."""
-        if not test.testcases.connections_support_transactions():
-            raise NotImplementedError('%s supports only DBs with transaction '
-                                      'capabilities.' % cls.__name__)
+        # if not test.testcases.connections_support_transactions():
+        #     raise NotImplementedError('%s supports only DBs with transaction '
+        #                               'capabilities.' % cls.__name__)
         for db in cls._databases():
             # These MUST be balanced with one leave_* each:
             transaction.enter_transaction_management(using=db)
